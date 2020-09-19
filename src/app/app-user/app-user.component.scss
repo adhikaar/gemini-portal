@@ -1,0 +1,42 @@
+.main-outer-container{
+  position: relative;
+  background-color: rgb(243, 243, 239);
+  margin-top:80px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+  height:auto !important;
+  height:100%;
+  min-height:100%;
+}
+
+.main-inner-container{
+  background-color: white;
+  padding-left:40px;
+}
+
+.main-heading{
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+table td {
+    width: 300px;
+    word-break: break-all;
+}
+
+button {
+  outline: none;
+}
+
+.example-radio-button {
+  box-sizing: border-box;
+  margin-left: 15px;
+}
+
+.select-item{
+  width: 100px;
+}

@@ -1,0 +1,126 @@
+<div class="container-fluid main-outer-container">
+  <div class="container-fluid main-inner-container">
+    <div class="container p-5">
+      <div class="row justify-content-center">
+        <div *ngIf="edit_mode==true" class="col-md-8 offset-md-2 justify-content-center">
+          <div class="row justify-self-end justify-content-end">
+          </div>
+            <h4 align="center" style="color:purple;margin-bottom:30px;">Edit Profile</h4>
+
+            <form name="form" (ngSubmit)="f.form.valid && update_user()" #f="ngForm" novalidate>
+
+              <div class="form-group">
+                <label for="title">Title</label>
+                <select [(ngModel)]="model.title" name="title" id="title" class="form-control select-item">
+                  <option ngValue="Mr.">Mr.</option>
+                  <option ngValue="Ms.">Ms.</option>
+                  <option ngValue="Mrs.">Mrs.</option>
+                  <option ngValue="M/S">M/S</option>
+                  <option ngValue="">N/A</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="name">Full Name  <font color="red">*</font></label>
+                  <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required/>
+                  <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                      <div *ngIf="name.errors.required">Name is required</div>
+                  </div>
+              </div>
+
+              <div *ngIf="model.phone!=null && model.phone!=''" class="form-group">
+                  <label for="phone">Phone  <font color="red">*</font></label>
+                  <input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" readonly />
+              </div>
+
+              <div *ngIf="model.email!=null && model.email!=''" class="form-group">
+                  <label for="email">Email  <font color="red">*</font></label>
+                  <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" readonly />
+              </div>
+
+              <div class="form-group">
+                <mat-form-field>
+                  <mat-label>Date of Birth </mat-label>
+                  <input matInput name="dob" [matDatepicker]="dob_picker" [(ngModel)]="model.dob" readonly>
+                  <mat-datepicker-toggle matSuffix [for]="dob_picker"></mat-datepicker-toggle>
+                  <mat-datepicker #dob_picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div class="form-group">
+                  <label for="occupation">Occupation  <font color="red">*</font></label>
+                  <input type="text" class="form-control" name="occupation" [(ngModel)]="model.occupation" #occupation="ngModel" [ngClass]="{ 'is-invalid': f.submitted && occupation.invalid }" required/>
+                  <div *ngIf="f.submitted && occupation.invalid" class="invalid-feedback">
+                      <div *ngIf="occupation.errors.required">Occupation is required</div>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="occupation">Passsword  <font color="red">*</font></label>
+                  <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required  minlength="4"/>
+                  <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                      <div *ngIf="password.errors.required">Password is required</div>
+                      <div *ngIf="password.errors.minlength">Password must be at least 4 characters</div>
+                  </div>
+              </div>
+
+              <div class="form-group" *ngIf="model?.phone != userService.loggedin_user_phone">
+                <label for="is_active">Account State</label>
+                <mat-radio-group name="is_active" class="example-radio-group" [(ngModel)]="model.is_active">
+                  <mat-radio-button class="example-radio-button" [value]="true">
+                    Active
+                  </mat-radio-button>
+                  <mat-radio-button class="example-radio-button" [value]="false">
+                    Deactivated
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group" align="center">
+                  <br>
+                  <button mat-raised-button color="warn" style="margin-right:10px;margin-top:10px;" (click)="edit_mode=false;">Cancel</button>
+                  <button name="submit" type="submit" mat-raised-button color="accent" style="margin-top:10px;">Save Changes</button>
+              </div>
+            </form>
+        </div>
+        <div *ngIf="edit_mode==false" class="col-md-8 offset-md-2">
+            <h4 align="center" style="color:purple;margin-bottom:30px;">User Profile</h4>
+            <table class="table">
+              <tbody>
+                <tr>
+                 <td>Name : </td>
+                 <td><strong>{{model.title}}{{model.name}}</strong></td>
+               </tr>
+               <tr *ngIf="model.phone!=null && model.phone!=''">
+                 <td>Phone :</td>
+                 <td><strong>{{model.phone}}</strong></td>
+               </tr>
+                <tr *ngIf="model.email!=null && model.email!=''">
+                  <td>Email :</td>
+                  <td><strong>{{model.email}}</strong></td>
+                </tr>
+               <tr>
+                 <td>Date of Birth:</td>
+                 <td><strong>{{model.dob  | date: 'dd-MMM-yyyy'}}</strong></td>
+               </tr>
+               <tr>
+               <tr>
+                 <td>Occupation :</td>
+                 <td><strong>{{model.occupation}}</strong></td>
+               </tr>
+               <tr>
+                 <td>Account State :</td>
+                 <td *ngIf="model.is_active==true"><strong>Active</strong></td>
+                 <td *ngIf="model.is_active==false"><strong>Deactivated</strong></td>
+               </tr>
+             </tbody>
+           </table>
+           <div align="center">
+               <br>
+               <button mat-raised-button color="primary" style="margin-right:10px;margin-top:10px;" routerLink="/dashboard">Back</button>
+               <button mat-raised-button color="accent" (click)="edit_mode=true;" style="margin-top:10px;">Edit Profile</button>
+           </div>
+         </div>
+     </div>
+   </div>
+  </div>
+</div>

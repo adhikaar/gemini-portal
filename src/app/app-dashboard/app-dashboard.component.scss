@@ -1,0 +1,98 @@
+.main-outer-container{
+  position: relative;
+  background-color: rgb(243, 243, 239);
+  margin-top:80px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+  height:auto !important;
+  height:100%;
+  min-height:100%;
+}
+
+.main-inner-container{
+  background-color: white;
+  padding-left:40px;
+}
+
+.main-heading{
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  overflow: auto;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+.data-table {
+  overflow: auto;
+  width:95%;
+  margin: 20px auto;
+}
+
+.form-field {
+  width: 80%;
+  margin: 20px auto;
+}
+
+
+th.mat-column-view, td.mat-column-view {
+  width: 20px;
+  padding-left: 20px;
+}
+
+th.mat-column-username, td.mat-column-username {
+  width: 100px;
+}
+
+th.mat-column-first_name, td.mat-column-first_name {
+  width: 100px;
+}
+
+.mat-table:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.mat-table:last-child {
+  border-left: 1px solid #e0e0e0;
+}
+
+
+.row-hover:hover {
+  background-color: #fafafa;
+}
+
+button {
+  outline: none;
+}
+
+.purple-button:hover{
+  color: black;
+  font-weight: 440;
+  background-color: #FFC107;
+}
+
+.purple-button{
+  color: white;
+  background-color: #4A148C;
+}
+
+.yellow-button{
+  color: black;
+  font-weight: 440;
+  background-color: #FFC107;
+}
+
+.color-red{
+  color: red;
+}

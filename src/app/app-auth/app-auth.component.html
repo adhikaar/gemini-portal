@@ -1,0 +1,118 @@
+<div class="overlay_class">
+  <div class="inner_class container-fluid">
+    <div class="row" style="margin-top:30px;">
+      <div class="col">
+          <div class="text-center">
+            <img src="@app/../assets/logo.png" height="120" width="120" class="img-fluid">
+          </div>
+      </div>
+    </div>
+    <div class="row">
+          <p class="page-header">Gemini Solutions Portal</p>
+    </div>
+    <div *ngIf="isLoading" class="row">
+      <div class="col-12 offset-6 pt-5">
+        <mat-spinner [diameter]="20" [color]="white" [strokeWidth]="1"></mat-spinner>
+      </div>
+    </div>
+    <div *ngIf="!isLoading" class="row">
+      <div class="col-12 col-sm-6 offset-sm-3">
+
+        <div *ngIf="login_auth_view==true">
+          <div *ngIf="login_stage=='error'">
+            <p style="color:white;font:size:0.8rem;">Incorrect Login credentials entered. Please try again.</p>
+          </div>
+          <div *ngIf="login_stage=='deactivated'">
+            <p style="color:white;"><strong>Your account has been deactivated. Please contact Support for reactivation.</strong></p>
+          </div>
+          <form *ngIf="login_stage=='initial'||login_stage=='error'||login_stage=='deactivated'" name="loginform" (ngSubmit)="loginform.form.valid && login()" #loginform="ngForm" (keydown)="login_keyDownFunction($event)" novalidate>
+            <div class="form-group">
+              <input type="text" class="form-control auth-item" name="login_phoneemail" [(ngModel)]="loginmodel.login_phoneemail" #login_phoneemail="ngModel" [ngClass]="{ 'is-invalid': loginform.submitted && login_phoneemail.invalid }" required emailOrPhone placeholder="Phone or Email">
+              <div *ngIf="loginform.submitted && login_phoneemail.invalid" class="invalid-feedback">
+                <div *ngIf="login_phoneemail.errors.required">Please provide your Phone/Email</div>
+                <div *ngIf="login_phoneemail.errors.emailOrPhone">Please provide a valid Phone/Email</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control auth-item" name="login_password" [(ngModel)]="loginmodel.login_password" #login_password="ngModel" [ngClass]="{ 'is-invalid': loginform.submitted && login_password.invalid }" required minlength="4" placeholder="Password">
+              <div *ngIf="loginform.submitted && login_password.invalid" class="invalid-feedback">
+                <div *ngIf="login_password.errors.required">Password is required.</div>
+                <div *ngIf="login_password.errors.minlength">Password must be at least 4 characters.</div>
+              </div>
+              <div>
+              </div>
+            </div>
+            <div class="form-group" align='center'>
+              <button class="btn btn-primary btn-block login_button" name="submit" type="submit" [disabled]="isLoading"><span style="font-weight:500;">Login</span></button>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="login_auth_view==false">
+          <form name="signupform" (ngSubmit)="signupform.form.valid && signup()" #signupform="ngForm" novalidate>
+
+            <div class="form-group">
+              <select name="signup_title"  #signup_title="ngModel"  [(ngModel)]="signupmodel.signup_title" class="form-control auth-select-item" [ngClass]="{ 'is-invalid': signupform.submitted && signup_title.invalid }">
+                <option ngValue="Mr.">Mr.</option>
+                <option ngValue="Ms.">Ms.</option>
+                <option ngValue="Mrs.">Mrs.</option>
+                <option ngValue="M/S">M/S</option>
+                <option ngValue="">N/A</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control auth-item" name="signup_name" [(ngModel)]="signupmodel.signup_name" #signup_name="ngModel" [ngClass]="{ 'is-invalid': signupform.submitted && signup_name.invalid }" required  placeholder="Full Name">
+               <div *ngIf="signupform.submitted && signup_name.invalid" class="invalid-feedback">
+                  <div *ngIf="signup_name.errors.required">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control auth-item" name="signup_email" [(ngModel)]="signupmodel.signup_email" #signup_email="ngModel" [ngClass]="{ 'is-invalid': signupform.submitted && signup_email.invalid }" required validemail placeholder="Email">
+              <div *ngIf="signupform.submitted && signup_email.invalid" class="invalid-feedback">
+                <div *ngIf="signup_email.errors.required">Please provide your Email</div>
+                <div *ngIf="signup_email.errors.validemail">Please provide a valid Email</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control auth-item" name="signup_phone" [(ngModel)]="signupmodel.signup_phone" #signup_phone="ngModel" [ngClass]="{ 'is-invalid': signupform.submitted && signup_phone.invalid }" required validphone placeholder="Phone Number">
+              <div *ngIf="signupform.submitted && signup_phone.invalid" class="invalid-feedback">
+                <div *ngIf="signup_phone.errors.required">Please provide your Phone</div>
+                <div *ngIf="signup_phone.errors.validphone">Please provide a valid 10-digit Phone Number without leading +91/0</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label class="auth-datepicker">Date of Birth </mat-label>
+                <input matInput name="signup_dob" [matDatepicker]="signup_dob_picker" [(ngModel)]="signupmodel.signup_dob" class="auth-datepicker" readonly>
+                <mat-datepicker-toggle matSuffix [for]="signup_dob_picker"></mat-datepicker-toggle>
+                <mat-datepicker #signup_dob_picker color="primary"></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control auth-item" name="signup_occupation" [(ngModel)]="signupmodel.signup_occupation" #signup_occupation="ngModel" [ngClass]="{ 'is-invalid': signupform.submitted && signup_occupation.invalid }" required  placeholder="Occupation">
+               <div *ngIf="signupform.submitted && signup_occupation.invalid" class="invalid-feedback">
+                  <div *ngIf="signup_occupation.errors.required">Occupation is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control auth-item" name="signup_password" [(ngModel)]="signupmodel.signup_password" #signup_password="ngModel" [ngClass]="{ 'is-invalid': signupform.submitted && signup_password.invalid }" required minlength="4" placeholder="Set a Password">
+              <div *ngIf="signupform.submitted && signup_password.invalid" class="invalid-feedback">
+                <div *ngIf="signup_password.errors.required">Password is required</div>
+                <div *ngIf="signup_password.errors.minlength">Password must be at least 4 characters</div>
+              </div>
+            </div>
+            <div class="form-group" align="center">
+              <p class="text-center small-line"><mat-checkbox name="signupenable" color="primary" class="example-margin" [(ngModel)]="signup_enabled">I agree to the Terms & Conditions of Gemini Solutions</mat-checkbox></p>
+              <button class="btn btn-primary btn-block login_button" name="submit" type="submit" [disabled]="isLoading || !signup_enabled"><span style="font-weight:500;">Sign Up</span></button>
+            </div>
+          </form>
+        </div>
+        <div align="center">
+          <button class="btn btn-link btn-block" (click)="onSwitchAuthView()"><span class="signup-link">{{ login_auth_view ? 'New User ? Signup Here' : ' Go to Login' }}</span></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<app-footer></app-footer>

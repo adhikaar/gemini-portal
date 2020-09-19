@@ -1,0 +1,63 @@
+<div class="container-fluid main-outer-container">
+  <div class="container-fluid main-inner-container">
+    <h2 class="main-heading" align="center" style="padding-top:50px;padding-bottom:50px;">Dashboard</h2>
+    <div class="row px-3 mb-5">
+      <div class="col">
+
+        <div class="container">
+          <div class="row">
+            <mat-form-field class="form-field justify-self-center">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="container pb-5 mb-5">
+          <div class="row">
+
+            <div class="mat-elevation-z8 data-table">
+              <table mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header><span style="display:flex;justify-content:center;margin:0 10px auto;">Name</span></th>
+                  <td mat-cell *matCellDef="let row"><span style="display:flex;margin:0 10px auto;"> {{row?.title}} {{row?.name}} </span></td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header><span style="display:flex;margin:0 10px auto;">Email</span></th>
+                  <td mat-cell *matCellDef="let row"><span style="display:flex;margin:0 10px auto;"> {{row?.email}} </span></td>
+                </ng-container>
+
+                <ng-container matColumnDef="phone">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header><span style="display:flex;margin:0 10px auto;">Phone</span></th>
+                  <td mat-cell *matCellDef="let row"><span style="display:flex;margin:0 10px auto;"> {{row?.phone}} </span></td>
+                </ng-container>
+
+                <ng-container matColumnDef="view">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                  <td mat-cell *matCellDef="let row"> <span style="display:flex;margin:0 10px auto;"><button mat-stroked-button color="primary" [routerLink]="'/user/'+row.phone">View</button></span> </td>
+                </ng-container>
+
+                <ng-container matColumnDef="deactivate">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                  <td mat-cell *matCellDef="let row"> <span *ngIf="row?.is_active && row?.phone != userService.loggedin_user_phone" style="display:flex;margin:0 10px auto;"><button mat-stroked-button color="warn" (click)="deactivate_user(row.phone)">Deactivate</button></span><span *ngIf="!row?.is_active && row?.phone != userService.loggedin_user_phone" style="display:flex;margin:0 17.5px auto;"><button mat-stroked-button color="accent" (click)="activate_user(row.phone)">Activate</button></span> </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                  <td mat-cell *matCellDef="let row"> <mat-icon [ngClass]="'color-red'" *ngIf="row?.phone != userService.loggedin_user_phone" (click)="openDeleteUserDialog(row)" style="cursor:pointer;">delete_forever</mat-icon> </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row-hover"></tr>
+
+              </table>
+              <mat-paginator class="paginatorclass" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

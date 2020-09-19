@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import "~@ng-select/ng-select/themes/material.theme.css";
+
+// @import "my-theme";
+// @import "~bootstrap/scss/bootstrap";
+//
+// @import "./../node_modules/bootstrap/scss/_functions.scss";
+// @import "./../node_modules/bootstrap/scss/_variables.scss";
+// @import "./../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
+//
+// html {
+//   font-size: 1rem;
+// }
+//
+// @include media-breakpoint-up(sm) {
+//   html {
+//     font-size: 1rem;
+//   }
+// }
+//
+// @include media-breakpoint-up(md) {
+//   html {
+//     font-size: 1.2rem;
+//   }
+// }
+//
+// @include media-breakpoint-up(lg) {
+//   html {
+//     font-size: 1.4rem;
+//   }
+// }
+//
+
+.form-control.ng-touched.ng-invalid{
+  border-bottom: 1px solid red;
+}
+
+// body { padding-top: 140px; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: rgba(0,0,0,0.6);
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: rgba(0,0,0,0.6);
+    }
+}

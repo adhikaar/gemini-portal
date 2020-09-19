@@ -1,0 +1,42 @@
+<div class="container-fluid main-outer-container">
+  <div class="container-fluid main-inner-container">
+    <h2 class="main-heading" align="center" style="padding-top:50px;padding-bottom:50px;">Readme</h2>
+    <div class="row px-3 mb-5">
+      <div class="col">
+
+        <p style="font-family:'Ubuntu', sans-serif;font-size:20px;color:#474444;margin-top:50px;">Instructions</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">This project is implemented in Angular Framework. The followwing features have bean implemented:</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Users can Signup for an account. The following field must be provided at signup - Title , Full Name, Email (must be unique), Phone Number (must be unique), Date of Birth and Occupation.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Once an account is created, users can Login to their accounts by either their Email or their Phone Number, alongwith their Password.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Once loggedin, the user is redirected to the Dashboard. The Dashboard displays a list of all registered users in a paginated tabular fashion.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">There is a Search functionality implemented and a user can be searched using any field in his/her account. The Search bar is dynamic and shows the search results with every keystroke.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">The Users can be sorted using any field by clicking the respective headers in the Table.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">A user account can be Deactivated from the Dashboard. Deactivated Accounts will not be allowed to login.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">A user account can be Permanently Deleted from the Dashboard.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">The currently loggedin user account cannot be Deactivated or Deleted. To Deactivate or Delete an account the user must be logged in from another account.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">The Dashboard has the View button for every user to view his detailed profile. The detailed user profile page displays complete information about the user.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">The User profile can be edited from the Detailed Profile Page by clicking Edit Profile.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">The Email and Phone Number are each treated as the Unique Identifiers of an account and are used at Login. Hence they are not allowed to be changed after initial Signup. An account is uniquely identified by these field and all other fields can be updated at any time.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Validations have been placed on the User Account fields at the Signup Stage as well as the Profile Update Stage.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Name must be 3-50 characters long.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Email must follow the regular expression rules of a typical email address and must be unique.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Phone number must be a 10-digit number without leading 0/+91 and starting with 6/7/8/9. It must be unique.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Occupation must be 1-200 characters long.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Password must be 4-20 characters long.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">For demonstration purposes the project is preloaded with some sample user data at startup.</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Since thier is no backend for persistence of data, the data refreshes to the initial state at every reload of the page in  the browser.</p>
+
+        <p style="font-family:'Ubuntu', sans-serif;font-size:20px;color:#474444;margin-top:50px;">DISCLAIMER</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">This project is solely meant for Demo purposes only. All logos and names used belong to their respective trademarked owners.</p>
+
+        <p style="font-family:'Ubuntu', sans-serif;font-size:20px;color:#474444;margin-top:50px;">Developed By</p>
+        <p style="font-family:'Ubuntu', sans-serif;font-size:14px;color:#474444;margin-top:10px;margin-left:20px;">Adhikaar Marwaha, Ph: 9953809852</p>
+
+      </div>
+    </div>
+
+    <div class="row mb-5 pb-5 justify-content-center text-center">
+      <button [routerLink]="['/dashboard']" mat-stroked-button class="submit-class">Back</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,248 @@
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #9C2E9F !important;
+}
+
+#link{
+  color: #1C2331;
+  font-size: 1.17rem;
+}
+
+.login_box {
+  background-color: #9C2E9F;
+}
+
+.login_button {
+  background-color: #9C2E9F !important;
+  color: white !important;
+}
+
+.login_button:hover {
+  background-color: white !important;
+  color: #9C2E9F !important;
+}
+
+.signup_button {
+  background-color: #9C2E9F !important;
+  color: white !important;
+}
+
+.signup_button:hover {
+  background-color: #9C2E9F !important;
+  color: #1C2331 !important;
+}
+
+.overlay_class{
+    background: url("../../assets/blurred_background.jpg") repeat center;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    // height: 1000px;
+    height: 100vh;
+
+    opacity: 1;
+    animation: animate-move-bg linear 30s infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.overlay_class::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes animate-move-bg {
+
+  from { background-position: 0px 0px; }
+  to { background-position: 0px -300px; }
+}
+
+.inner_class{
+  height:auto;
+  max-height:100%;
+  overflow:auto;
+  box-sizing: border-box;
+}
+
+.auth-item{
+  width: 100%;
+  padding: 20px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.auth-select-item{
+  margin: 8px 0;
+  box-sizing: border-box;
+  width:100px;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.auth-item:focus {
+  border: 3px solid #9C2E9F;
+}
+
+.auth-select-item:focus {
+  border: 3px solid #9C2E9F;
+}
+
+.signup-link{
+  color: white;
+}
+
+.page-header{
+  font-family: 'Indie Flower', cursive;
+  font-size: 40px;
+  color: #fff;
+  line-height: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  margin:auto;
+}
+
+.small-line{
+  font-size:0.8rem;
+  color: white;
+}
+
+.auth-datepicker{
+  color: white;
+}
+
+.main-inner-container{
+  background-color: white;
+}
+
+.main-heading{
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 6px;
+  font-weight: 600;
+}
+
+.main-button{
+  font-family:monospace;
+  color:gray !important;
+  border-color:gray !important;
+}
+
+.main-button:hover {
+  color: #8e4ebc !important;
+  border-color: #8e4ebc !important;
+}
+
+.category-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.main-subheading{
+  font-family: monospace;
+  text-decoration: none;
+  border-bottom: 2px solid #8e4ebc;
+}
+
+.blog-link:hover{
+  color: #8e4ebc !important;
+  cursor: pointer;
+}
+
+.image-container{
+  position: relative;
+}
+
+.team-overlay {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.image-container:hover .team-overlay {
+  opacity: 0.3;
+}
+
+.image-container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #8e4ebc;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+.coloured-text{
+  font-size: 14px;
+  color: #8e4ebc !important;
+}
+
+.social-icon:hover {
+  color: #e848ab !important;
+}
+
+.header_border{
+  position: relative;
+  border-bottom:4px solid #8e4ebc;
+}
+.header_border::after{
+  content: " ";
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  bottom: -6px;
+  border-bottom: 2px solid #e848ab;
+}
+
+.hov-img-zoom {
+  display: absolute;
+  overflow: hidden;
+}
+
+.hov-img-zoom ion-img{
+  width: 100%;
+  -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+  height: inherit;
+  overflow: hidden;
+}
+.hov-img-zoom:hover ion-img {
+  -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  .page-header{
+    font-size: 30px;
+  }
+}
