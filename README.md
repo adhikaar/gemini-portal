@@ -5,21 +5,21 @@ Readme
 Instructions
 ------------
 
-This project is implemented in Angular Framework. The following features have bean implemented:
+This project is implemented in Angular Framework. The following features have been implemented:
 
-Users can Signup for an account. The following field must be provided at signup - Title , Full Name, Email (must be unique), Phone Number (must be unique), Date of Birth and Occupation.
+Users can Signup for an account. The following field must be provided at signup - Title , Full Name, Email (must be unique), Phone Number (must be unique), Date of Birth, Occupation and a Password.
 
 Once an account is created, users can Login to their accounts by either their Email or their Phone Number, along with their Password.
 
 Once logged in, the user is redirected to the Dashboard. The Dashboard displays a list of all registered users in a paginated tabular fashion.
 
-There is a Search functionality implemented and a user can be searched using any field in his/her account. The Search bar is dynamic and shows the search results with every keystroke.
+There is a Search functionality implemented. A user account can be searched using any field value. The Search Bar is dynamically updated and shows the search results with every keystroke.
 
-The Users can be sorted using any field by clicking the respective headers in the Table.
+The User Accounts can be sorted using any field by clicking the respective header in the table.
 
-A user account can be Deactivated from the Dashboard. Deactivated Accounts will not be allowed to login.
+A User Account can be Deactivated from the Dashboard. Deactivated Accounts will not be allowed to login.
 
-A user account can be Permanently Deleted from the Dashboard.
+A User Account can be Permanently Deleted from the Dashboard.
 
 The currently logged in user account cannot be Deactivated or Deleted. To Deactivate or Delete an account the user must be logged in from another account.
 
