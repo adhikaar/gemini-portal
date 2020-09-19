@@ -1,27 +1,60 @@
-# Mdbs
+Readme
+------
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Development server
+Instructions
+------------
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project is implemented in Angular Framework. The following features have bean implemented:
 
-## Code scaffolding
+Users can Signup for an account. The following field must be provided at signup - Title , Full Name, Email (must be unique), Phone Number (must be unique), Date of Birth and Occupation.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Once an account is created, users can Login to their accounts by either their Email or their Phone Number, along with their Password.
 
-## Build
+Once logged in, the user is redirected to the Dashboard. The Dashboard displays a list of all registered users in a paginated tabular fashion.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+There is a Search functionality implemented and a user can be searched using any field in his/her account. The Search bar is dynamic and shows the search results with every keystroke.
 
-## Running unit tests
+The Users can be sorted using any field by clicking the respective headers in the Table.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A user account can be Deactivated from the Dashboard. Deactivated Accounts will not be allowed to login.
 
-## Running end-to-end tests
+A user account can be Permanently Deleted from the Dashboard.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The currently logged in user account cannot be Deactivated or Deleted. To Deactivate or Delete an account the user must be logged in from another account.
 
-## Further help
+The Dashboard has the View button for every user to view his detailed profile. The detailed user profile page displays complete information about the user.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The User profile can be edited from the Detailed Profile Page by clicking Edit Profile.
+
+The Email and Phone Number are each treated as the Unique Identifiers of an account and are used at Login. Hence they are not allowed to be changed after initial Signup. An account is uniquely identified by these field and all other fields can be updated at any time.
+
+Validations have been placed on the User Account fields at the Signup Stage as well as the Profile Update Stage.
+
+Name must be 3-50 characters long.
+
+Email must follow the regular expression rules of a typical email address and must be unique.
+
+Phone number must be a 10-digit number without leading 0/+91 and starting with 6/7/8/9. It must be unique.
+
+Occupation must be 1-200 characters long.
+
+Password must be 4-20 characters long.
+
+For demonstration purposes the project is preloaded with some sample user data at startup.
+
+Since their is no backend for persistence of data, the data refreshes to the initial state at every reload of the page in the browser.
+
+
+
+DISCLAIMER
+----------
+
+This project is solely meant for Demo purposes only. All logos and names used belong to their respective trademarked owners.
+
+
+
+Developed By
+------------
+
+Adhikaar Marwaha, Ph: 9953809852
